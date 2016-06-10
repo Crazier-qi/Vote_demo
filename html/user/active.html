@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>邮箱激活</title>
+<LINK REL=StyleSheet HREF="css/style.css" TYPE="text/css" MEDIA=screen>
+<meta name="robots" content="noindex,follow" />
+</head>
+<body>
+  <div class="container">
+    <div class="login">
+      <h1>邮 箱 激 活</h1>
+	<form onsubmit="return checkEmail()" action="mailcheck.php" method="post" enctype="multipart/form-data">
+        <p><input type="text" id="email" name="email" value="" placeholder="请输入您的邮箱"></p>
+        <p><input type="vcode" id="vcode" name="code_num2" value="" placeholder="请输入验证码" maxlength="4"><img onClick="this.src='img2.php'" src="img2.php"></p>
+        <p class="prompt">提示：建议使用QQ邮箱</p>
+        <p class="submit"><input type="submit" name="commit" value="激 活"></p>
+      </form>
+    </div>	
+  </div>
+
+<script type="text/javascript">
+function checkEmail(){
+	var emailValue=document. getElementById("email").value;
+	if (!isEmail(emailValue)){
+		alert("您输入的邮箱有误,请重新核对后再输入!");
+		document. getElementById("email").focus();
+		return false;
+	}
+	return true;
+}
+
+function isEmail(str){
+	var reg = /^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/;
+	return reg.test(str);
+}
+</script>
+
+</body>
+</html>
